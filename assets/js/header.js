@@ -1,4 +1,3 @@
-// assets/js/header.js
 fetch('header.html')
   .then(response => response.text())
   .then(data => {
@@ -10,4 +9,11 @@ fetch('header.html')
       document.querySelectorAll('#navbar a').forEach(link => link.classList.remove('active'));
       navLink.classList.add('active');
     }
+    
+    // Mobile nav toggle
+    document.querySelector('.mobile-nav-toggle').addEventListener('click', function() {
+      document.querySelector('#navbar').classList.toggle('navbar-mobile');
+      this.classList.toggle('bi-list');
+      this.classList.toggle('bi-x');
+    });
   });
