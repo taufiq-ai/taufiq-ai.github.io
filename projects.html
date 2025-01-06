@@ -37,7 +37,7 @@
   <main id="main">
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <section id="projects" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -45,9 +45,20 @@
           <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
-        <div class="row">
-          
-          <div class="col-lg-4 col-md-6 portfolio-item filter-vision mb-4"> 
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-ongoing">Ongoing</li>
+              <li data-filter=".filter-done">Done</li>
+              <!-- <li data-filter=".filter-web">Web</li> -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">   
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-ongoing mb-4"> 
             <div class="portfolio-wrap" style="position: relative;"> 
               <img src="assets/img/projects/privacy_rag_2.png" class="img-fluid w-100" alt="">
               <div class="portfolio-info" style="background: rgba(0, 0, 0, 0.65); position: absolute; bottom: 0; left: 0; right: 0; padding: 15px;">
@@ -55,8 +66,8 @@
                   <h4 style="font-size: 1.2rem; margin-bottom: 10px; color:rgb(255, 255, 255)">
                     Privacy Aware RAG Agent
                   </h4>
-                  <p style="font-size: 0.9rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
-                    Tools: PyTorch, Transformers, LangChain, Chroma DB
+                  <p style="font-size: 0.8rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
+                    Tools: PyTorch, Transformers, LangChain, Chroma
                   </p>
                   <div class="portfolio-links">
                     <a href="https://github.com/taufiq-ai/Privacy-Aware-RAG" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
@@ -68,7 +79,7 @@
           </div>
 
           
-          <div class="col-lg-4 col-md-6 portfolio-item filter-vision mb-4"> 
+          <div class="col-lg-4 col-md-6 portfolio-item filter-ongoing mb-4"> 
             <div class="portfolio-wrap" style="position: relative;"> 
               <img src="assets/img/projects/exaone.png" class="img-fluid w-100" alt="">
               <div class="portfolio-info" style="background: rgba(0, 0, 0, 0.65); position: absolute; bottom: 0; left: 0; right: 0; padding: 15px;">
@@ -76,7 +87,7 @@
                   <h4 style="font-size: 1.2rem; margin-bottom: 10px; color:rgb(255, 255, 255)">
                     EXAONE-3.5-2.4B: Finetuning, Quantization, and Inference
                   </h4>
-                  <p style="font-size: 0.9rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
+                  <p style="font-size: 0.8rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
                     Tools: PyTorch, Transformers
                   </p>
                   <div class="portfolio-links">
@@ -89,7 +100,7 @@
           </div>
 
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-vision mb-4"> 
+          <div class="col-lg-4 col-md-6 portfolio-item filter-done mb-4"> 
             <div class="portfolio-wrap" style="position: relative;"> 
               <img src="assets/img/projects/robot_receptionist.png" class="img-fluid w-100" alt="">
               <div class="portfolio-info" style="background: rgba(0, 0, 0, 0.65); position: absolute; bottom: 0; left: 0; right: 0; padding: 15px;">
@@ -97,10 +108,10 @@
                   <h4 style="font-size: 1.2rem; margin-bottom: 10px; color:rgb(255, 255, 255)">
                     Bengali AI Reciptionist
                   </h4>
-                  <p style="font-size: 0.9rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
+                  <p style="font-size: 0.8rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
                     Tools: Flask, PyTorch, Transformers, OpenCV, gTTS, PyAudio
                   </p>
-                  <!-- <p style="font-size: 0.9rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
+                  <!-- <p style="font-size: 0.8rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
                     Key Features: PyTorch, Transformers, OpenCV, gTTS, PyAudio
                   </p> -->
                   <div class="portfolio-links">
@@ -114,14 +125,14 @@
 
 
           
-          <div class="col-lg-4 col-md-6 portfolio-item filter-vision mb-4"> 
+          <div class="col-lg-4 col-md-6 portfolio-item filter-done mb-4"> 
             <div class="portfolio-wrap" style="position: relative;"> 
               <img src="assets/img/projects/ckd.png" class="img-fluid w-100" alt="">
               <div class="portfolio-info" style="background: rgba(0, 0, 0, 0.65); position: absolute; bottom: 0; left: 0; right: 0; padding: 15px;">
                 <div style="max-width: 100%;">
                   <h4 style="font-size: 1.2rem; margin-bottom: 10px; color:rgb(255, 255, 255)">
                     Chronic Kidney Disease Diagnosis</h4>
-                  <p style="font-size: 0.9rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
+                  <p style="font-size: 0.8rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
                     Tools: Flask, TensorFlow-CPU, SK-Learn, Scipy, Render Cloud</p>
                   <div class="portfolio-links">
                     <a href="https://github.com/taufiq-ai/ML-Kidney-Disease-Diagnosis" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
@@ -132,7 +143,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-vision mb-4"> 
+          <div class="col-lg-4 col-md-6 portfolio-item filter-done mb-4"> 
             <div class="portfolio-wrap" style="position: relative;"> 
               <img src="assets/img/projects/all.png" class="img-fluid w-100" alt="">
               <div class="portfolio-info" style="background: rgba(0, 0, 0, 0.65); position: absolute; bottom: 0; left: 0; right: 0; padding: 15px;">
@@ -140,7 +151,7 @@
                   <h4 style="font-size: 1.2rem; margin-bottom: 10px; color:rgb(255, 255, 255)">
                     Leukemia Detection from Microscopic Blood Smear Images</h4>
                   </h4>
-                  <p style="font-size: 0.9rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
+                  <p style="font-size: 0.8rem; margin-bottom: 10px; color:rgba(255, 255, 255, 0.65)">
                     Tools: Flask, Keras, TensorFlow-CPU, Render Cloud</p>
                   <div class="portfolio-links">
                     <a href="https://github.com/taufiq-ai/Vision-Blood-Cancer-Stage-Detection" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
