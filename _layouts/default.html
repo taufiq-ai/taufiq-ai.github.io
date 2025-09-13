@@ -215,11 +215,9 @@
     <input type="checkbox" id="theme-toggle">
 
     <nav>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/about.html">About</a>
-            <a href="/blog/">Blog</a>
-        </div>
+        <!-- ======= Header ======= -->
+        <div id="header-placeholder"></div>
+        <!-- End Header -->
         <label for="theme-toggle" class="theme-toggle-label">
             <span class="theme-icon-light">🌙</span>
             <span class="theme-icon-dark">☀️</span>
@@ -235,5 +233,7 @@
     <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--nav-border); text-align: center; color: var(--meta-color);">
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. Built with Jekyll on GitHub Pages.</p>
     </footer>
+
+  <script src="assets/js/header.js"></script>
 </body>
 </html>
