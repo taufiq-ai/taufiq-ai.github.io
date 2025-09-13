@@ -12,19 +12,6 @@
     <style>
         /* Light mode (default) */
         :root {
-            --bg-color: #ffffff;
-            --text-color: #333333;
-            --nav-border: #eeeeee;
-            --card-bg: #ffffff;
-            --card-border: #e1e5e9;
-            --code-bg: #f6f8fa;
-            --link-color: #2563eb;
-            --meta-color: #666666;
-            --blockquote-border: #e5e7eb;
-        }
-
-        /* Dark mode when checkbox is checked */
-        body:has(#theme-toggle:checked) {
             --bg-color: #1a1a1a;
             --text-color: #e1e5e9;
             --nav-border: #333333;
@@ -34,6 +21,19 @@
             --link-color: #60a5fa;
             --meta-color: #999999;
             --blockquote-border: #404040;
+        }
+
+        /* Dark mode when checkbox is checked */
+        body:has(#theme-toggle:checked) {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --nav-border: #eeeeee;
+            --card-bg: #ffffff;
+            --card-border: #e1e5e9;
+            --code-bg: #f6f8fa;
+            --link-color: #2563eb;
+            --meta-color: #666666;
+            --blockquote-border: #e5e7eb;
         }
 
         body {
@@ -213,16 +213,25 @@
 </head>
 <body>
     <input type="checkbox" id="theme-toggle">
-
+    
     <nav>
-        <!-- ======= Header ======= -->
-        <div id="header-placeholder"></div>
-        <!-- End Header -->
+        <div class="nav-links">
+            <a href="/" style="color: rgb(54, 155, 255);">Home</a>
+            <a href="/about.html" style="color: rgb(54, 155, 255);">About</a>
+            <a href="/services.html" style="color: rgb(54, 155, 255);">Services</a>
+            <a href="/projects.html" style="color: rgb(54, 155, 255);">Projects</a>
+            <a href="/publication.html" style="color: rgb(54, 155, 255);">Publications</a>
+            <a href="/resume.html" style="color: rgb(54, 155, 255);">Resume</a>
+            <a href="/blog/" style="color: rgb(255, 111, 54);">Blog</a>
+            <a href="/contact.html" style="color: rgb(54, 155, 255);">Contact</a>
+        </div>
+
+
         <label for="theme-toggle" class="theme-toggle-label">
-            <span class="theme-icon-light">🌙</span>
-            <span class="theme-icon-dark">☀️</span>
-            <span class="theme-text-light">Dark</span>
-            <span class="theme-text-dark">Light</span>
+            <span class="theme-icon-light">☀️</span>
+            <span class="theme-icon-dark">🌙</span>
+            <span class="theme-text-light">Light</span>
+            <span class="theme-text-dark">Dark</span>
         </label>
     </nav>
 
@@ -233,7 +242,5 @@
     <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--nav-border); text-align: center; color: var(--meta-color);">
         <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. Built with Jekyll on GitHub Pages.</p>
     </footer>
-
-  <script src="assets/js/header.js"></script>
 </body>
 </html>

@@ -5,7 +5,11 @@ __pycache__/
 
 # C extensions
 *.so
+
+# jekyll
 .jekyll-cache/
+_site/
+
 # Distribution / packaging
 .Python
 build/
