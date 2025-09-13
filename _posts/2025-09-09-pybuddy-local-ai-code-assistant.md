@@ -1,10 +1,15 @@
 # PyBuddy: A Local-First LLM Coding Assistant for Everyone
 
+![Photo by <a href="https://unsplash.com/@rahuulmiishra?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Rahul Mishra</a> on <a href="https://unsplash.com/photos/a-computer-monitor-sitting-on-top-of-a-desk-7vNPUkY3gg4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](</assets/img/blog/pybuddy-thumbnail.jpg>)
+
 LLM Coding assistant or LLM Chatbots has become a daily companion to programmers and CS students. Today, when learning something completely new, we often start by asking ChatGPT, Claude, or Perplexity. When encounter an unknown error, we let them explain or point us to valid references on the internet. When searching online resources, many prefer Perplexity since it answers with citations. Some of us also use these tools to review code quality, reduce complexity, or write docstrings.
 
 **However, the major drawbacks of these commercial chat bots are:**  
+
 - **Usage Limit:** Free versions have tight usage caps. We often get cut off mid-task.
+
 - **Context Window:** Uploading multiple files or using specialized tools shrinks the context-window, forcing us to leave the conversation at the middle.
+
 - **Privacy:** Providers often use chat data to improve their products. This is a concern for confidential projects and research.
 
 - **Instability:** At peak hours, access can slow down or get blocked, though rare.
