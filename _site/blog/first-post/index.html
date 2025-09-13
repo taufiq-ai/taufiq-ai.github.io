@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Jekyll Blog Post - Taufiq's Blog</title>
+    <meta name="description" content="Learning how to use Jekyll for blogging on GitHub Pages">
+    
+    <!-- SEO tags (automatically generated) -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>My First Jekyll Blog Post | Taufiq’s Blog</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="My First Jekyll Blog Post" />
+<meta name="author" content="Taufiq" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learning how to use Jekyll for blogging on GitHub Pages" />
+<meta property="og:description" content="Learning how to use Jekyll for blogging on GitHub Pages" />
+<link rel="canonical" href="http://0.0.0.0:4000/blog/first-post/" />
+<meta property="og:url" content="http://0.0.0.0:4000/blog/first-post/" />
+<meta property="og:site_name" content="Taufiq’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-15T00:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="My First Jekyll Blog Post" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Taufiq"},"dateModified":"2024-01-15T00:00:00-06:00","datePublished":"2024-01-15T00:00:00-06:00","description":"Learning how to use Jekyll for blogging on GitHub Pages","headline":"My First Jekyll Blog Post","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/blog/first-post/"},"url":"http://0.0.0.0:4000/blog/first-post/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+    <style>
+        /* Light mode (default) */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --nav-border: #eeeeee;
+            --card-bg: #ffffff;
+            --card-border: #e1e5e9;
+            --code-bg: #f6f8fa;
+            --link-color: #2563eb;
+            --meta-color: #666666;
+            --blockquote-border: #e5e7eb;
+        }
+
+        /* Dark mode when checkbox is checked */
+        body:has(#theme-toggle:checked) {
+            --bg-color: #1a1a1a;
+            --text-color: #e1e5e9;
+            --nav-border: #333333;
+            --card-bg: #252525;
+            --card-border: #404040;
+            --code-bg: #2d2d2d;
+            --link-color: #60a5fa;
+            --meta-color: #999999;
+            --blockquote-border: #404040;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        nav {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--nav-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Hide the actual checkbox */
+        #theme-toggle {
+            display: none;
+        }
+        
+        /* Style the label as a button */
+        .theme-toggle-label {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 0.9em;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+        }
+        
+        .theme-toggle-label:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        body:has(#theme-toggle:checked) .theme-toggle-label:hover {
+            box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+        }
+        
+        /* Show moon icon by default (light mode) */
+        .theme-icon-light {
+            display: inline;
+        }
+        .theme-icon-dark {
+            display: none;
+        }
+        
+        .theme-text-light {
+            display: inline;
+        }
+        .theme-text-dark {
+            display: none;
+        }
+        
+        /* When checked (dark mode), show sun icon */
+        body:has(#theme-toggle:checked) .theme-icon-light {
+            display: none;
+        }
+        body:has(#theme-toggle:checked) .theme-icon-dark {
+            display: inline;
+        }
+        
+        body:has(#theme-toggle:checked) .theme-text-light {
+            display: none;
+        }
+        body:has(#theme-toggle:checked) .theme-text-dark {
+            display: inline;
+        }
+        
+        .post-meta {
+            color: var(--meta-color);
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        
+        .post-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .post-item {
+            margin-bottom: 30px;
+            padding: 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .post-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        body:has(#theme-toggle:checked) .post-item:hover {
+            box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+        }
+        
+        .post-title {
+            font-size: 1.4em;
+            margin: 0 0 8px 0;
+        }
+        
+        .post-title a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .post-title a:hover {
+            color: var(--link-color);
+        }
+        
+        .post-excerpt {
+            color: var(--meta-color);
+            margin: 10px 0;
+        }
+        
+        pre {
+            background: var(--code-bg);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        
+        code {
+            background: var(--code-bg);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        blockquote {
+            border-left: 4px solid var(--blockquote-border);
+            padding-left: 16px;
+            margin: 16px 0;
+            font-style: italic;
+            color: var(--meta-color);
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="theme-toggle">
+
+    <nav>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/blog/">Blog</a>
+        </div>
+        <label for="theme-toggle" class="theme-toggle-label">
+            <span class="theme-icon-light">🌙</span>
+            <span class="theme-icon-dark">☀️</span>
+            <span class="theme-text-light">Dark</span>
+            <span class="theme-text-dark">Light</span>
+        </label>
+    </nav>
+
+    <main>
+        <article>
+    <header style="margin-bottom: 30px;">
+        <h1>My First Jekyll Blog Post</h1>
+        <div class="post-meta">
+            <time datetime="2024-01-15T00:00:00-06:00">
+                January 15, 2024
+            </time>
+             • by Taufiq
+            
+                • Tags: 
+                
+                    <span style="background: #f0f0f0; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-left: 4px;">jekyll</span>
+                
+                    <span style="background: #f0f0f0; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-left: 4px;">github-pages</span>
+                
+                    <span style="background: #f0f0f0; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-left: 4px;">blogging</span>
+                
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+        <p>Welcome to my first Jekyll blog post! This is much simpler than I thought.</p>
+
+<h2 id="why-jekyll">Why Jekyll?</h2>
+
+<p>Jekyll is great because:</p>
+<ul>
+  <li>It’s built into GitHub Pages</li>
+  <li>Great SEO out of the box</li>
+  <li>Simple to write posts in Markdown</li>
+  <li>No JavaScript required for content</li>
+</ul>
+
+<h2 id="adding-images">Adding Images</h2>
+
+<p>You can add images easily:
+<img src="https://via.placeholder.com/600x300?text=Your+Image+Here" alt="Sample Image" /></p>
+
+<h2 id="code-snippets">Code Snippets</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello from Jekyll!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">!"</span>
+</code></pre></div></div>
+
+<h2 id="lists-and-more">Lists and More</h2>
+
+<p>Here’s what you can do:</p>
+<ul>
+  <li>Write in Markdown</li>
+  <li>Add syntax highlighting</li>
+  <li>Include images</li>
+  <li>Create clean URLs automatically</li>
+  <li>Get comments with Giscus</li>
+</ul>
+
+<blockquote>
+  <p>This is a blockquote. Jekyll handles all the HTML generation for you!</p>
+</blockquote>
+
+<p>That’s it! Just push to GitHub and your blog is live with perfect SEO.</p>
+
+    </div>
+</article>
+
+<!-- Simple comment system using Giscus (GitHub Discussions) -->
+<div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #eee;">
+    <h3>Comments & Reactions</h3>
+    <script src="https://giscus.app/client.js"
+            data-repo="taufiq-ai/taufiq-ai.github.io"
+            data-repo-id="R_kgDOKXcy-Q"
+            data-category="Q&A"
+            data-category-id="DIC_kwDOKXcy-c4CvaGb"
+            data-mapping="title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="1"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
+        💡 Comments are powered by GitHub Discussions. You can react with emojis and reply without any extra signup!
+    </p>
+</div>
+
+<div style="margin-top: 40px;">
+    <a href="/blog/" style="color: #2563eb; text-decoration: none;">← Back to Blog</a>
+</div>
+    </main>
+
+    <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--nav-border); text-align: center; color: var(--meta-color);">
+        <p>&copy; 2025 Taufiq. Built with Jekyll on GitHub Pages.</p>
+    </footer>
+</body>
+</html>

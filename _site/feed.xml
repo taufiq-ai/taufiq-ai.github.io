@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-09-13T16:20:09-05:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Taufiq’s Blog</title><subtitle>A personal blog about development and life</subtitle><author><name>Taufiq</name><email>taufiqkhantusar@gmail.com</email></author><entry><title type="html">My First Jekyll Blog Post</title><link href="http://0.0.0.0:4000/blog/first-post/" rel="alternate" type="text/html" title="My First Jekyll Blog Post" /><published>2024-01-15T00:00:00-06:00</published><updated>2024-01-15T00:00:00-06:00</updated><id>http://0.0.0.0:4000/blog/first-post</id><content type="html" xml:base="http://0.0.0.0:4000/blog/first-post/"><![CDATA[<p>Welcome to my first Jekyll blog post! This is much simpler than I thought.</p>
+
+<h2 id="why-jekyll">Why Jekyll?</h2>
+
+<p>Jekyll is great because:</p>
+<ul>
+  <li>It’s built into GitHub Pages</li>
+  <li>Great SEO out of the box</li>
+  <li>Simple to write posts in Markdown</li>
+  <li>No JavaScript required for content</li>
+</ul>
+
+<h2 id="adding-images">Adding Images</h2>
+
+<p>You can add images easily:
+<img src="https://via.placeholder.com/600x300?text=Your+Image+Here" alt="Sample Image" /></p>
+
+<h2 id="code-snippets">Code Snippets</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">hello</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello from Jekyll!</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s">!"</span>
+</code></pre></div></div>
+
+<h2 id="lists-and-more">Lists and More</h2>
+
+<p>Here’s what you can do:</p>
+<ul>
+  <li>Write in Markdown</li>
+  <li>Add syntax highlighting</li>
+  <li>Include images</li>
+  <li>Create clean URLs automatically</li>
+  <li>Get comments with Giscus</li>
+</ul>
+
+<blockquote>
+  <p>This is a blockquote. Jekyll handles all the HTML generation for you!</p>
+</blockquote>
+
+<p>That’s it! Just push to GitHub and your blog is live with perfect SEO.</p>]]></content><author><name>Taufiq</name></author><category term="jekyll" /><category term="github-pages" /><category term="blogging" /><summary type="html"><![CDATA[Learning how to use Jekyll for blogging on GitHub Pages]]></summary></entry></feed>

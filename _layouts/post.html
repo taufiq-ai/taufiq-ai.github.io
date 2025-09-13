@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<article>
+    <header style="margin-bottom: 30px;">
+        <h1>{{ page.title }}</h1>
+        <div class="post-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+                {{ page.date | date: "%B %d, %Y" }}
+            </time>
+            {% if page.author %} • by {{ page.author }}{% endif %}
+            {% if page.tags.size > 0 %}
+                • Tags: 
+                {% for tag in page.tags %}
+                    <span style="background: #f0f0f0; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; margin-left: 4px;">{{ tag }}</span>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+</article>
+
+<!-- Simple comment system using Giscus (GitHub Discussions) -->
+<div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #eee;">
+    <h3>Comments & Reactions</h3>
+    <script src="https://giscus.app/client.js"
+            data-repo="taufiq-ai/taufiq-ai.github.io"
+            data-repo-id="R_kgDOKXcy-Q"
+            data-category="Q&A"
+            data-category-id="DIC_kwDOKXcy-c4CvaGb"
+            data-mapping="title"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="1"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <p style="font-size: 0.9em; color: #666; margin-top: 10px;">
+        💡 Comments are powered by GitHub Discussions. You can react with emojis and reply without any extra signup!
+    </p>
+</div>
+
+<div style="margin-top: 40px;">
+    <a href="/blog/" style="color: #2563eb; text-decoration: none;">← Back to Blog</a>
+</div>
