@@ -1,4 +1,11 @@
-# PyBuddy: A Local-First LLM Coding Assistant for Everyone
+---
+layout: post
+title: "PyBuddy: A Local-First LLM Coding Assistant for Everyone"
+description: "A Small Language Model based Python Coding Assistant for Low Resource Devices"
+date: 2025-09-09
+tags: [llm, code-assistant, on-device inference]
+author: Taufiq
+---
 
 ![Photo by <a href="https://unsplash.com/@rahuulmiishra?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Rahul Mishra</a> on <a href="https://unsplash.com/photos/a-computer-monitor-sitting-on-top-of-a-desk-7vNPUkY3gg4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](</assets/img/blog/pybuddy-thumbnail.jpg>)
 
@@ -131,8 +138,8 @@ Everything big starts with something small. The steps we are taking today may so
 
 ## Resources
 
-- **Code:** github.com/taufiq-ai/slm-python-buddy
+- **Code:** [github.com/taufiq-ai/slm-python-buddy](github.com/taufiq-ai/slm-python-buddy)
 
-- **Models:** huggingface.co/taufiq-ai/qwen2.5-coder-1.5-instruct-ft
+- **Models:** [huggingface.co/taufiq-ai/qwen2.5-coder-1.5-instruct-ft](huggingface.co/taufiq-ai/qwen2.5-coder-1.5-instruct-ft)
 
-- **Android Demo:** YouTube Link
+- **Android Demo:** [YouTube Link](https://www.youtube.com/watch?v=GkIkqUldQak)
