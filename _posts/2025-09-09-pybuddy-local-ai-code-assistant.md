@@ -138,8 +138,8 @@ Everything big starts with something small. The steps we are taking today may so
 
 ## Resources
 
-- **Code:** [github.com/taufiq-ai/slm-python-buddy](github.com/taufiq-ai/slm-python-buddy)
+- **Code:** [https://github.com/taufiq-ai/slm-python-buddy](https://github.com/taufiq-ai/slm-python-buddy){:target="_blank"}
 
-- **Models:** [huggingface.co/taufiq-ai/qwen2.5-coder-1.5-instruct-ft](huggingface.co/taufiq-ai/qwen2.5-coder-1.5-instruct-ft)
+- **Models:** [huggingface.co/taufiq-ai/qwen2.5-coder-1.5-instruct-ft](https://huggingface.co/taufiq-ai/qwen2.5-coder-1.5-instruct-ft){:target="_blank"}
 
-- **Android Demo:** [YouTube Link](https://www.youtube.com/watch?v=GkIkqUldQak)
+- **Android Demo:** [www.youtube.com/watch?v=GkIkqUldQak](https://www.youtube.com/watch?v=GkIkqUldQak){:target="_blank"}
