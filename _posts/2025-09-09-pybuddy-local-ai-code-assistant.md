@@ -1,13 +1,14 @@
 ---
 layout: post
 title: "PyBuddy: A Local-First LLM Coding Assistant for Everyone"
-description: "A Small Language Model based Python Coding Assistant for Low Resource Devices"
+description: "A Small Language Model based Python Coding Assistant for Low Resource Devices."
 date: 2025-09-09
 tags: [llm, code-assistant, on-device inference]
 author: Taufiq
+photo: /blog/static/img/pybuddy.jpg
 ---
 
-![Photo by <a href="https://unsplash.com/@rahuulmiishra?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Rahul Mishra</a> on <a href="https://unsplash.com/photos/a-computer-monitor-sitting-on-top-of-a-desk-7vNPUkY3gg4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>](</assets/img/blog/pybuddy-thumbnail.jpg>)
+![img](</blog/static/img/pybuddy.jpg>)
 
 LLM Coding assistant or LLM Chatbots has become a daily companion to programmers and CS students. Today, when learning something completely new, we often start by asking ChatGPT, Claude, or Perplexity. When encounter an unknown error, we let them explain or point us to valid references on the internet. When searching online resources, many prefer Perplexity since it answers with citations. Some of us also use these tools to review code quality, reduce complexity, or write docstrings.
 
