@@ -48,7 +48,7 @@ class BlogPostSystem {
 
     try {
       // Load markdown content
-      const markdownPath = `posts/${slug}.md`;
+      const markdownPath = `/blog/posts/${slug}.md`;
       const response = await fetch(markdownPath);
       
       if (!response.ok) {
