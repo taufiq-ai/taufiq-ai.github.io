@@ -47,28 +47,21 @@ class BlogPostSystem {
     }
 
     try {
-      // Load markdown content
-      const markdownPath = `/blog/posts/${slug}.md`;
-      const response = await fetch(markdownPath);
+      // Check for embedded markdown content first
+      const embeddedContent = document.getElementById('post-markdown-content');
       
-      if (!response.ok) {
-        throw new Error('Markdown file not found');
+      if (embeddedContent) {
+        const markdownContent = embeddedContent.textContent;
+        const parsed = this.parseFrontmatter(markdownContent);
+        this.currentPost = { ...this.currentPost, ...parsed.frontmatter };
+        this.renderPost(parsed.content);
+      } else {
+        // Fallback to metadata only
+        this.renderPostFromMetadata();
       }
-
-      const markdownContent = await response.text();
-      
-      // Parse frontmatter and content
-      const parsed = this.parseFrontmatter(markdownContent);
-      
-      // Merge frontmatter with metadata
-      this.currentPost = { ...this.currentPost, ...parsed.frontmatter };
-      
-      // Render the post
-      this.renderPost(parsed.content);
       
     } catch (error) {
       console.error('Error loading post content:', error);
-      // Fallback to metadata only
       this.renderPostFromMetadata();
     }
   }
