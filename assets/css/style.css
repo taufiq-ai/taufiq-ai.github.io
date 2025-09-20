@@ -498,7 +498,10 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding-top: 45px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .section-bg {
