@@ -74,7 +74,7 @@ class BlogSystem {
             </div>
 
             <h3 class="blog-title">
-              <a href="${slug}.html">${post.title}</a>
+              <a href="${post.slug}.html">${post.title}</a>
             </h3>
 
             <p class="blog-description">
@@ -83,7 +83,7 @@ class BlogSystem {
 
             ${tagsHtml ? `<div class="blog-tags">${tagsHtml}</div>` : ''}
 
-            <a href="${slug}.html" class="blog-read-more">
+            <a href="${post.slug}.html" class="blog-read-more">
               Read More <i class="fas fa-arrow-right"></i>
             </a>
           </div>
