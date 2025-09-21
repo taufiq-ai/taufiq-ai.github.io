@@ -8,37 +8,30 @@
     "slug": "pybuddy-local-ai-code-assistant"
   },
   {
-    "title": "Building AI Applications with Python and Flask",
-    "date": "2024-12-15",
-    "description": "A comprehensive guide to creating intelligent web applications using Python, Flask, and modern AI APIs. Learn how to integrate machine learning models into web apps.",
-    "tags": ["python", "flask", "ai", "api", "tutorial"],
-    "readTime": "8 min read",
-    "slug": "building-ai-applications-with-python-and-flask"
+    "title": "Turn Your Android Device into a Remote Linux Server in 30 Minutes",
+    "date": "2025-08-25",
+    "description": "Have you ever thought about turning your Android phone into a pocket Linux server without root? A server that’s accessible from anywhere in the world and can run your services 24/7 without any cost.",
+    "tags": ["pocket-server", "ssh", "mesh-network", "linux"],
+    "readTime": "6 min read",
+    "slug": "turn-android-device-into-remote-linux-server-in-30-minutes"
   },
   {
-    "title": "Understanding Transformer Architecture in Deep Learning",
-    "date": "2024-12-08",
-    "description": "Dive deep into the transformer architecture that powers modern language models like GPT and BERT. Understand attention mechanisms and their applications.",
-    "tags": ["deep-learning", "transformers", "nlp", "attention", "theory"],
-    "readTime": "12 min read",
-    "slug": "understanding-transformer-architecture-in-deep-learning"
+    "title": "Hacks to use Google Colab Free GPU on Local VS-code for Inference",
+    "date": "2025-01-25",
+    "description": "Use Google Colab's free 15GB T4 GPU for inference through your local machine.",
+    "tags": ["llm", "free-gpu", "hybrid-inference"],
+    "readTime": "13 min read",
+    "slug": "google-colab-free-gpu-on-local-device-for-inference"
   },
   {
-    "title": "Deploying Machine Learning Models to Production",
-    "date": "2024-12-01",
-    "description": "Best practices for deploying ML models in production environments. Cover containerization, API design, monitoring, and scaling strategies.",
-    "tags": ["mlops", "deployment", "docker", "api", "production"],
-    "readTime": "15 min read",
-    "slug": "deploying-machine-learning-models-to-production"
+    "title": "EXAONE-3.5-2.4B: A Ultra-lightweight but High Performing LLM on Just 6GB GPU",
+    "date": "2025-01-04",
+    "description": "An ultra-lightweight opensource model for on-devce use",
+    "tags": ["llm", "on-device", "inference"],
+    "readTime": "3 min read",
+    "slug": "exaone-3-5-2-4b-pre-trained"
   },
-  {
-    "title": "Computer Vision Preprocessing Techniques",
-    "date": "2024-11-24",
-    "description": "Essential image preprocessing techniques for computer vision projects. Learn about normalization, augmentation, and feature extraction methods.",
-    "tags": ["computer-vision", "preprocessing", "opencv", "python", "tutorial"],
-    "readTime": "10 min read",
-    "slug": "computer-vision-preprocessing-techniques"
-  },
+  
   {
     "title": "Getting Started with Git and GitHub for Developers",
     "date": "2024-11-17",
