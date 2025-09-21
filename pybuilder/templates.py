@@ -8,8 +8,8 @@ md_to_html_blog_post_template_v1 = """
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <!-- Dynamic meta tags will be populated by JavaScript -->
-  <title id="post-title">Loading... - Taufiq</title>
-  <meta id="post-description" content="" name="description">
+  <title id="post-title">Insights on AI, machine learning, software development, and technology trends by TAUFIQ</title>
+  <meta id="post-description" content="Taufiq is an AI Engineer with 3+ years building production-ready AI systems, leading technical communities, and coordinating multi-team projects" name="description">
   <meta id="post-keywords" content="" name="keywords">
 
   <!-- Favicons -->
@@ -117,7 +117,7 @@ md_to_html_blog_post_template_v1 = """
               <div class="comments-section">
                 <h3>Comments</h3>
                 <div id="github-comments">
-                  <p><a href="#" id="github-discussion-link" target="_blank">Join the discussion on GitHub</a></p>
+                  <p><a href="https://github.com/taufiq-ai/taufiq-ai.github.io/discussions" id="github-discussion-link" target="_blank">Join the discussion on GitHub</a></p>
                 </div>
               </div>
 
