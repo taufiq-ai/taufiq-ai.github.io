@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +8,9 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <!-- Dynamic meta tags will be populated by JavaScript -->
-  <title id="post-title">Loading... - Taufiq</title>
-  <meta id="post-description" content="" name="description">
-  <meta id="post-keywords" content="" name="keywords">
+  <title id="post-title">EXAONE-3.5-2.4B: A Ultra-lightweight but High Performing LLM on Just 6GB GPU</title>
+  <meta id="post-description" content="An ultra-lightweight opensource model for on-devce use" name="description">
+  <meta id="post-keywords" content="llm, consumer-device, inference" name="keywords">
 
   <!-- Favicons -->
   <link href="/assets/img/code-icon.png" rel="icon">
@@ -34,11 +36,89 @@
   <link href="/assets/css/blog.css" rel="stylesheet">
   <link href="/assets/css/blog-posts.css" rel="stylesheet">
 
-
-
 </head>
 
 <body>
+
+<!-- Embedded Markdown Content (Hidden from user, read by JavaScript) -->
+<script type="text/html" id="post-markdown-content" style="display: none;">
+
+<img src="https://cdn.hashnode.com/res/hashnode/image/upload/v1735936115968/8e583ec6-f2b6-4f70-9c94-f7d8c2254946.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp" alt="EXAONE-3.5-2.4B: A Ultra-lightweight but High Performing LLM on Just 6GB GPU" class="image--center mx-auto" />
+
+<p>Today, there are many Large Language Models (LLMs) available, ranging from billions to trillions of parameters in size. While the list of LLMs is extensive, it becomes much shorter when considering in-house models with lower GPU requirements. Performance remains the critical factor, and finding a model that combines low GPU consumption with high performance is increasingly rare in today's landscape.</p>
+<p>Recently, I explored the <a target="_blank" href="https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct"><strong>EXAONE-3.5-2.4B-Instruct</strong></a> model that was developed by <a target="_blank" href="https://www.lgresearch.ai/">LG AI Research</a>. I specifically tested the model for various tasks including NER, Text Classification, Code Generation, Q&amp;A, Summarization, Text Generation, and Article Generation. The results showed better performance compared to similar-sized models such as IBM's Granite 2B, Google's Gemma 2B, and Microsoft's Phi-2. Additionally, EXAONE-3.5-2.4B-Instruct consumes only ~6GB of GPU memory during inference using the pre-trained model.</p>
+<h2 id="heading-background">Background</h2>
+<p>Before diving into the details, let me share what led me to discover this model. I'm working on a RAG chatbot project that handles sensitive business data and requires high contextual understanding. The project faces several key challenges:</p>
+<ol>
+<li><p><strong>Data Security:</strong> Sensitive business data that should not be exposed at any case.</p>
+</li>
+<li><p><strong>Context Window:</strong> Token count grows exponentially with chat history, making commercial LLM APIs like OpenAI and Anthropic prohibitively expensive.</p>
+</li>
+<li><p><strong>Multi-Task Handling:</strong> The system needs to handle diverse tasks including NER, Python &amp; SQL code generation, moderation, segmentation, and RAG-based Q&amp;A. This requires either a versatile single model or multiple specialized models.</p>
+</li>
+<li><p><strong>Latency:</strong> One task waits on another task's output, so latency should be minimal. Although the GPT 4o Mini, Claude 3.5 Haiku offer lower latency, they sometimes face overload issues.</p>
+</li>
+<li><p><strong>Limited Budget:</strong> GPU requirements should stay around 5GB for inference to remain cost-effective.</p>
+</li>
+<li><p><strong>Accuracy:</strong> High contextual understanding and accuracy is essential for reliable performance.</p>
+</li>
+</ol>
+<p>After evaluating these requirements, I explored several top-ranked smaller models from the Open LLM Leaderboard, such as <strong>tiiuae/Falcon3-1B-Instruct</strong>, <strong>google/gemma-2b</strong>, <strong>ibm-granite/granite-3.1-2b-instruct</strong>, <strong>microsoft/phi-2</strong>. EXAONE-3.5-2.4B-Instruct stood out for its strong contextual understanding, multi-task capabilities, efficient resource usage (only ~6GB GPU &amp; 2GB RAM), and structured output formatting.</p>
+<h2 id="heading-benchmark">Benchmark</h2>
+<p><strong>EXAONE-3.5</strong> comes in three variants: 2.4B, 7.8B, and 32B parameters. Below are benchmark comparison scores of the 2.4B &amp; 7.8B variants against similar models.</p>
+<p><img src="https://media.licdn.com/dms/image/v2/D5612AQF-KP0j08w1aQ/article-inline_image-shrink_400_744/article-inline_image-shrink_400_744/0/1735449260094?e=1741219200&amp;v=beta&amp;t=m9buwZYML2nnnetVtzjqV_m_2mtvTTPsvCJIZ7Gqhdw" alt="Benchmark score comparison" class="image--center mx-auto" /></p>
+<h2 id="heading-hardware-requirements">Hardware Requirements</h2>
+<p>Testing was conducted using the Kaggle Free Tier with the following specifications:</p>
+<ul>
+<li><p>GPU: Tesla P100 16GB</p>
+</li>
+<li><p>RAM: 29GB</p>
+</li>
+<li><p>Disk: 60GB</p>
+</li>
+</ul>
+<p>After a 2-hour testing session, the resource consumption was notably efficient:</p>
+<ol>
+<li><p>GPU Memory: 6.3GB</p>
+</li>
+<li><p>RAM Usage: ~2GB</p>
+</li>
+<li><p>Disk Space: 11.1GB</p>
+</li>
+</ol>
+<h2 id="heading-code">Code</h2>
+<p>Let's go through the <a target="_blank" href="https://www.kaggle.com/code/taufiqtusar/exaone-3-5-2-4b-instruct-pre-trained-model-test">Kaggle Notebook</a> to explore the pretrained variant of EXAONE-3.5-2.4B-Instruct. The notebook is ready to run on the go - just do not forget to change the accelerator to GPU. It'll take approx. 3-4 minutes to setup the model and tokenizer. For detailed implementation guidelines, you can refer to the model's documentation <a target="_blank" href="https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct">here</a>.</p>
+<p>I've explored the following use cases in this notebook:</p>
+<ol>
+<li><p>Named Entity Recognition (NER)</p>
+</li>
+<li><p>Text Classification</p>
+</li>
+<li><p>Python &amp; HTML Code Generation</p>
+</li>
+<li><p>Q&amp;A</p>
+</li>
+<li><p>Text Summarization</p>
+</li>
+<li><p>Text Generation</p>
+</li>
+</ol>
+<h2 id="heading-future-works">Future Works</h2>
+<p>Next, I plan to explore the following with <strong>EXAONE-3.5-2.4B</strong>:</p>
+<ul>
+<li><p><strong>Fine-tuning:</strong> In this exploration, I used the pre-trained model for quick testing. For better output, fine-tuning is necessary. I believe the JSON formatting and context understanding will improve after fine-tuning.</p>
+</li>
+<li><p><strong>Quantization:</strong> This will optimize GPU consumption while maintaining the model's current knowledge in the fine-tuned version.</p>
+</li>
+<li><p><strong>Multilingual Capability:</strong> The EXAONE model currently performs well only in English and Korean, but I require multilingual capability. Further exploration is needed in this area.</p>
+</li>
+</ul>
+<h2 id="heading-conclusion">Conclusion</h2>
+<p>EXAONE-3.5-2.4B-Instruct demonstrates that smaller language models can deliver effective performance while being resource-efficient. With its modest ~6GB GPU requirement and strong capabilities across multiple NLP tasks, it serves as an excellent choice for production deployments where both performance and resource optimization are crucial.</p>
+<p>You can find the documentation and implementation details in the notebook. Feel free to use the code for your use cases. Thank you.</p>
+
+
+</script>
 
   <!-- ======= Header ======= -->
   <div id="header-placeholder"></div>
@@ -190,3 +270,4 @@
 </body>
 
 </html>
+

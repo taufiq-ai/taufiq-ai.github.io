@@ -28,8 +28,7 @@ def build_html_post_from_md(
     print(f"Saved HTML blog post to {save_dir}{filename}")
     return
 
-
-if __name__ == "__main__":
+def build_cmd():
     import argparse
     parser = argparse.ArgumentParser(
         description="Build HTML blog post from Markdown file."
@@ -48,3 +47,48 @@ if __name__ == "__main__":
         markdown_filepath=args.md,
         save_dir=args.out
     )
+
+
+
+def build_html_post_from_hasnode_md_text(
+        md_text: str, 
+        path_to_save: str,
+        update_blog_list: bool = False,
+):
+    """Build HTML blog post from exported Hasnode Markdown text.
+    Args:
+        md_text (str): raw unformatted markdown text
+        path_to_save (str): Full path to save the generated HTML file.
+        update_blog_list (bool): Whether to update the blog list json after building the post. (future use)
+
+    Returns:
+        None
+
+    Usage:
+
+    ```
+    >>> from blog.posts.hashnode import *
+    >>> from pybuilder.blog_builder import *
+    >>> from pybuibuild_html_post_from_hasnode_md_text(raw_md_text, 'blog/turn-android-device-into-remote-linux-server-in-30-minutes.html')
+    ```
+    """
+    
+    print(
+        f"Building HTML blog post from raw markdown text to {path_to_save}"
+    )
+    
+    html_content = templates.md_to_html_blog_post_template_v1.format(
+        markdown_content=md_text
+    )
+    with open(path_to_save, "w") as f:
+        f.write(html_content)
+
+    print(f"Saved HTML blog post to {path_to_save}")
+    return
+
+
+
+if __name__ == "__main__":
+    # execute the build command if this script is run directly
+    print()
+    # build_cmd()

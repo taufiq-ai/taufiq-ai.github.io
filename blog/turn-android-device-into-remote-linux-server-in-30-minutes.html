@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Dynamic meta tags will be populated by JavaScript -->
+  <title id="post-title">Turn Your Android Device into a Remote Linux Server in 30 Minutes</title>
+  <meta id="post-description" content="Have you ever thought about turning your Android phone into a pocket Linux server without root? A server that’s accessible from anywhere in the world and can run your services 24/7 without any cost." name="description">
+  <meta id="post-keywords" content="pocket-server, ssh, mesh-network, linux" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/code-icon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+  <!-- Syntax Highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/blog.css" rel="stylesheet">
+  <link href="/assets/css/blog-posts.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Embedded Markdown Content (Hidden from user, read by JavaScript) -->
+<script type="text/markdown" id="post-markdown-content" style="display: none;">
+
+![image](https://cdn.hashnode.com/res/hashnode/image/upload/v1756085072233/e42a9618-e726-42d2-b79f-cee655593f2a.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp)
+
+Hi folks! Have you ever thought about turning your Android phone into a pocket Linux server without root? A server that’s accessible from anywhere in the world and can run your services 24/7 without any cost.
+
+I recently experimented with this idea and would love to share the setup with you. But before diving into the technical steps, let me answer a few questions to build some understanding:
+
+### **What are the core functionalities of a remote Linux server?**
+
+* Accessible from anywhere in the world using any of your devices
+    
+* Able to run services such as web apps, machine learning models, APIs, etc
+    
+* Services keep running even if you log out from your device
+    
+* Can expose services for public visibility or external usage if desired
+    
+* Provides secure access and file management through SSH
+    
+
+### **What you’ll learn from this article?**
+
+* How to turn your Android device into a Linux machine without root
+    
+* How to create a mesh network to make your pocket server accessible outside your local network
+    
+* How to access the remote server from any device using SSH
+    
+
+**In the next part of this article, I’ll cover:** How to remotely deploy a Flask app on your pocket server, making the app publicly available through free or custom domains and keeping the app running forever using a linux window manager.
+
+### **When to use this Pocket Server?**
+
+* You want a free solution to deploy your fun projects
+    
+* You need a quick and easy setup for rapid prototyping
+    
+* You want your app running and accessible 24/7 without budget limitations
+    
+* You’re an early-stage learner exploring how a Linux server works
+    
+* You need a personal server for experiments without renting cloud services or hardware
+    
+
+***Note:*** *This setup is not recommended for use as a production server for business applications.*
+
+## Quick Setup Overview
+
+**For experienced developers:** Here's the 30-second summary of what we're building. **If you’re new to this:** The detailed step-by-step guide below covers everything from installation to troubleshooting, with explanations of each concept and command.
+
+**Overview:**
+
+1. **Termux** → Linux environment on Android (no root needed)
+    
+2. **SSH Server** → OpenSSH daemon on port 8022 of Android (Termux)
+    
+3. **Tailscale** → Mesh network for global connectivity (bypasses NAT/firewalls)
+    
+4. **SSH Client** → Remote access from any device on the mesh network
+    
+
+**Architecture:** `Your Computer (SSH Client)` ←→ `Tailscale Mesh Network` ←→ `Android (Termux + SSH Server)`
+
+Now let's begin with the detailed technical part of this setup. I'll break it down into several steps to help you understand easily.
+
+## Step 1. Enable your android to run linux commands
+
+The simplest solution is to install the **Termux App** on your android device. You can get it from Google Play Store.
+
+> **What is Termux?** [Termux](https://termux.dev/en/) is a free and open-source terminal emulator and Linux environment for Android devices. It allows users to run a Linux command-line interface (CLI) and access a wide range of Linux tools and utilities directly on their phones or tablets. Essentially, it turns your Android device into a portable Linux machine.
+
+![Termux for Android](https://cdn.hashnode.com/res/hashnode/image/upload/v1756081436890/f6491c7c-8c13-4bba-a318-ba060fcff572.jpeg align="center")
+
+### Install required packages on your Termux
+
+```bash
+# update termux packages
+pkg upgrade -y
+
+# install openssh server
+pkg install openssh -y
+pkg install termux-services -y
+
+# start OpenSSH server
+sshd
+
+# Check if SSH server is running: It shows process ID number
+pgrep sshd
+
+# Show username - save this for later! 
+whoami
+# you'll see something like this
+u0_a329 
+```
+
+**Learn more:**
+
+1\. Termux Remote Access: [https://wiki.termux.com/wiki/Remote\_Access](https://wiki.termux.com/wiki/Remote_Access)
+
+## Step 2: Create a Mesh Network
+
+To make your server accessible from anywhere in the world, we'll use **Tailscale** to create a secure mesh network between your devices.
+
+> What is Tailscale? [Tailscale](https://tailscale.com/) is a mesh VPN (Virtual Private Network) service that streamlines connecting devices and services securely across different networks.
+
+### Install Tailscale
+
+**On Android:**
+
+* Install the Tailscale app from Google Play Store
+    
+* Sign up with your email account
+    
+
+**On your computer (Linux/Ubuntu):**
+
+```bash
+curl -fsSL https://tailscale.com/install.sh | sh
+
+# Start tailscale and connect
+sudo tailscale up
+
+# Show your computer's tailscale ipv4
+tailscale ip -4 
+# you'll see something like: 100.123.173.83
+```
+
+Visit [Tailscale download page](https://tailscale.com/download) to get the tailscale for different OS including android, ios, windows, linux, or mac.
+
+**Important:** Use the same email account on both devices to connect them to the same mesh network.
+
+### Get your Android's Tailscale IP
+
+* Open Tailscale app on Android
+    
+* Note down the IP address shown (e.g., 100.92.201.3)
+    
+* Alternatively, visit your [Tailscale Admin Console](https://login.tailscale.com/admin/machines)
+    
+
+![Tailscale Admin Console (Browser)](https://cdn.hashnode.com/res/hashnode/image/upload/v1756074406266/189e790f-e6bc-4502-9efa-04eaf80c57fe.png align="center")
+
+**Learn more:**
+
+1\. [Understanding mesh network topology (mesh VPNs)](https://tailscale.com/learn/understanding-mesh-vpns)
+
+## Step 3: Set Up SSH Keys
+
+Now we'll create secure SSH keys to connect to your pocket server.
+
+### Create SSH Key Pair on your computer
+
+```bash
+# Navigate to SSH directory
+cd ~/.ssh
+
+# Generate SSH Keys (replace email with your own)
+ssh-keygen -t ed25519 -C taufiqkhantusar@gmail.com
+```
+
+When prompted for filename, write a name for your ssh keys. In this example, I’ve written `pocket_server_key` as the filename.
+
+**Expected output:**
+
+```plaintext
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/data/data/com.termux/files/home/.ssh/id_ed25519): pocket_server_key
+Enter passphrase for "pocket_server_key" (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in pocket_server_key
+Your public key has been saved in pocket_server_key.pub
+```
+
+### Copy the public key
+
+```bash
+# Print and copy the public key
+cat pocket_server_key.pub
+```
+
+Copy the entire output (starts with ssh-ed25519...). For example, my public key is: `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFIx5eS+ukcJEnqQwpKxvR1C/zn9GAInyvWPqd091vpj` [`taufiqkhantusar@gmail.com`](mailto:taufiqkhantusar@gmail.com)
+
+### Add the public key to your Android (Termux)
+
+```bash
+# Run on Termux
+nano ~/.ssh/authorized_keys 
+# Paste the public key, save with Ctrl+S, exit with Ctrl+X
+```
+
+Now, you’ve given access to your computer to connect your pocket server remotely.
+
+## Step 4: Configure Remote Access
+
+### Create SSH config on your computer
+
+```bash
+nano ~/.ssh/config
+```
+
+**Add this configuration (replace with your actual values):**
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1756074102607/1f2d7cdc-3aad-4185-b8f7-aaed913486ae.png align="center")
+
+Here **Hosname** is your Android's Tailscale IP. **User** is your Termux username from `whoami`. **IdentityFile** is the ssh private key you just generated. **Port** is your Termux SSH port.
+
+```bash
+Host my-pocket-server
+    Hostname 100.92.201.3 
+    Port 8022
+    User u0_a329
+    IdentityFile ~/.ssh/pocket_server_key
+    ForwardAgent yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 5
+    TCPKeepAlive yes
+```
+
+> **Why port 8022?** Termux uses port 8022 instead of the standard SSH port 22 for security reasons and to avoid conflicts with system services.
+
+## Step 5: Connect to Your Pocket Server
+
+Make sure SSH is running on Termux using `sshd` on your Android (Termux).
+
+Now SSH from your computer and check that you can access your pocket server remotely.
+
+```bash
+# from your computer
+ssh -v my-pocket-server
+```
+
+The `-v` flag shows verbose output to help troubleshoot any connection issues.
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1756073207262/29441402-ba4a-4ad7-8075-af439669a5a9.png align="center")
+
+**🎉 Boom!** You've successfully transformed your Android device into a remote Linux server! Your server is now ready to host applications, run scripts, and serve as your personal development environment remotely!
+
+You can also SSH from any device on your Tailscale network (just copy your SSH config and keys to other devices).
+
+## Quick Troubleshooting FAQ
+
+**Connection refused?** Check if SSH is running: `pgrep sshd` on Termux
+
+**Permission denied?** Verify your public key is in Termux's `~/.ssh/authorized_keys`
+
+**Can't connect?** Ensure both devices show "Connected" in Tailscale Admin Panel
+
+**High battery drain?** This is normal - keep your device plugged in when running services
+
+## What's Next?
+
+In **Part 2** of this series, we'll take your pocket server to the next level:
+
+* Host a Flask web application
+    
+* Make your app publicly accessible with free and custom domains
+    
+* Set up process management to keep services running 24/7
+    
+* Add monitoring and logging capabilities
+    
+
+**Have questions or ran into issues?** Drop a comment below! I would love helping fellow developers get their pocket servers running.
+
+**Found this helpful?** Share it with your developer friends who love experimenting with creative solutions!
+
+</script>
+
+  <!-- ======= Header ======= -->
+  <div id="header-placeholder"></div>
+  <!-- End Header -->
+
+  <main id="main">
+    <!-- ======= Blog Post Section ======= -->
+    <section id="blog-post" class="blog-post">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Loading State -->
+        <div id="loading-state" class="text-center" style="padding: 60px 0;">
+          <i class="fas fa-spinner fa-spin fa-2x" style="color: #34b7a7;"></i>
+          <p style="margin-top: 20px; color: #666;">Loading article...</p>
+        </div>
+
+        <!-- Article Content -->
+        <div id="article-content" style="display: none;">
+          <div class="row">
+            <div class="col-lg-9">
+              <!-- Article Header -->
+              <div class="post-header">
+                <h1 id="article-title" class="post-title"></h1>
+                <div class="post-meta">
+                  <div class="post-meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="article-date"></span>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="article-read-time"></span>
+                  </div>
+                  <div class="post-meta-item">
+                    <i class="fas fa-user"></i>
+                    <span>Taufiq Khan Tusar</span>
+                  </div>
+                </div>
+                <div id="article-tags" class="post-tags"></div>
+              </div>
+
+              <!-- Article Body -->
+              <div id="article-body" class="post-content">
+                <!-- Markdown content will be rendered here -->
+              </div>
+
+              <!-- Post Navigation -->
+              <div class="post-navigation">
+                <div class="nav-previous" id="nav-previous" style="display: none;">
+                  <a href="#">
+                    <i class="fas fa-chevron-left"></i>
+                    <div>
+                      <small>Previous Post</small>
+                      <span class="nav-title"></span>
+                    </div>
+                  </a>
+                </div>
+                <div class="nav-next" id="nav-next" style="display: none;">
+                  <a href="#">
+                    <div>
+                      <small>Next Post</small>
+                      <span class="nav-title"></span>
+                    </div>
+                    <i class="fas fa-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- GitHub Discussions Comments -->
+              <div class="comments-section">
+                <h3>Comments</h3>
+                <div id="github-comments">
+                  <p><a href="#" id="github-discussion-link" target="_blank">Join the discussion on GitHub</a></p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+              <div class="sidebar">
+                
+                <!-- Recent Posts -->
+                <div class="sidebar-widget">
+                  <h4>Recent Posts</h4>
+                  <div id="recent-posts" class="recent-posts">
+                    <!-- Recent posts will be loaded here -->
+                  </div>
+                </div>
+
+                <!-- Back to Blog -->
+                <div class="sidebar-widget">
+                  <a href="/blog" class="btn btn-outline-primary btn-block">
+                    <i class="fas fa-arrow-left"></i> Back to Blog
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-state" class="text-center" style="display: none; padding: 60px 0;">
+          <i class="fas fa-exclamation-triangle fa-2x" style="color: #dc3545;"></i>
+          <h3 style="margin-top: 20px;">Article Not Found</h3>
+          <p style="color: #666;">The article you're looking for doesn't exist or has been moved.</p>
+          <a href="/blog" class="btn btn-primary">Back to Blog</a>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Blog Post Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <div id="footer-placeholder"></div>
+  <!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Vendor JS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/purecounter/1.5.0/purecounter_vanilla.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+
+  <!-- Markdown and Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+
+  <!-- Template Main JS Files -->
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/footer.js"></script>
+
+  <!-- Blog Post JS -->
+  <script src="/assets/js/blog-posts.js"></script>
+
+</body>
+
+</html>
+
