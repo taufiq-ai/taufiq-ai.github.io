@@ -639,6 +639,29 @@ section {
   margin-bottom: 40px;
 }
 
+.profile-contact {
+  margin-top: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+.contact-item i {
+  color: #34b7a7;
+  width: 20px;
+  margin-right: 12px;
+  font-size: 14px;
+}
+
+.contact-item span {
+  color: #666;
+}
+
 .profile-img {
   width: 200px;
   height: 200px;
