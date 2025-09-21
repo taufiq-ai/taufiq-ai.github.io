@@ -239,7 +239,7 @@ class BlogPostSystem {
     // Generate GitHub discussion link based on post title
     const discussionTitle = encodeURIComponent(`Discussion: ${this.currentPost.title}`);
     const discussionBody = encodeURIComponent(`Let's discuss the blog post: ${this.currentPost.title}\n\nRead the full post: ${window.location.href}`);
-    const githubUrl = `https://github.com/taufiq-ai/portfolio/discussions/new?category=blog&title=${discussionTitle}&body=${discussionBody}`;
+    const githubUrl = `https://github.com/taufiq-ai/taufiq-ai.github.io/discussions`;
     
     document.getElementById('github-discussion-link').setAttribute('href', githubUrl);
   }
