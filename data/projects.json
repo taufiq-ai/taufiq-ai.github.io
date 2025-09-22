@@ -1,7 +1,7 @@
 [
   {
     "title": "SLM API Server",
-    "tools": "python, huggingface, llama-cpp-python",
+    "tools": "python, huggingface-hub, llama-cpp-python",
     "category": "api",
     "tags": ["small-language-model", "inference", "api"],
     "year": "2025",
@@ -12,7 +12,7 @@
   },
   {
     "title": "SLM Python Buddy",
-    "tools": "trransformers, llama.cpp, python",
+    "tools": "transformers, llama.cpp, python",
     "category": "ml",
     "tags": ["small-language-model", "code-assistant", "on-device"],
     "year": "2025",
@@ -28,7 +28,7 @@
     "tags": ["rag", "llm", "ecommerce"],
     "year": "2025",
     "description": "Privacy-Aware RAG System for Proprietary Internal Data in E-commerce Services",
-    "github": "https://github.com/username/ecommerce-api",
+    "github": "https://github.com/taufiq-ai/Privacy-Aware-RAG",
     "deployment": "",
     "demo": null
   },

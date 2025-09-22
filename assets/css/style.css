@@ -662,6 +662,16 @@ section {
   color: #666;
 }
 
+.contact-item a {
+  color: #666;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: #34b7a7;
+  text-decoration: underline;
+}
+
 .profile-img {
   width: 200px;
   height: 200px;
@@ -671,7 +681,7 @@ section {
 }
 
 .profile-name {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   color: #222;
   margin-bottom: 10px;
@@ -681,7 +691,7 @@ section {
   font-size: 16px;
   color: #34b7a7;
   font-style: italic;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 .info-card {
