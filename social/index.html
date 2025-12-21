@@ -83,6 +83,12 @@
     .row.g-3 {
       justify-content: center;
     }
+
+    /* For the last column only */
+    .row.g-3 > .col-md-6:last-child {
+      margin-left: 0;   /* remove any auto margin if any */
+      margin-right: auto; /* push it to left */
+    }
   </style>
 </head>
 
@@ -147,6 +153,20 @@
                   <div>
                     <div class="social-title">GitHub</div>
                     <div class="social-sub">Code & open source</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6">
+            <a href="https://www.youtube.com/@taufiq-ai" target="_blank" class="social-link">
+              <div class="social-card">
+                <div class="social-row">
+                  <i class="fab fa-youtube social-icon text-danger"></i>
+                  <div>
+                    <div class="social-title">YouTube</div>
+                    <div class="social-sub">Videos & tutorials</div>
                   </div>
                 </div>
               </div>
